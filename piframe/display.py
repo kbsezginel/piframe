@@ -8,7 +8,7 @@ class Display:
         self.state = None
 
     def __repr__(self):
-        return f"<Display is %s>" % self.state
+        return "<Display is %s>" % self.state
 
     def toggle(self, state, check_state=True):
         cmd = [self.exec, "display_power", {"on": "1", "off": "0"}[state]]
@@ -16,7 +16,7 @@ class Display:
             self.run(cmd)
             self.state = state
         elif check_state:
-            print(f"Display is already {self.state}, cannot turn {state}")
+            print("Display is already %s, cannot turn %s" % (self.state, state))
 
     def display_power(self):
         cmd = [self.exec, "display_power"]
