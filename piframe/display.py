@@ -20,7 +20,9 @@ class Display:
 
     def display_power(self):
         cmd = [self.exec, "display_power"]
-        return self.run(cmd)
+        out = self.run(cmd)
+        state = out.split("=")[1]
+        self.state = {"1": "on", "0": "off"}[state]
 
     def measure_temp(self):
         cmd = [self.exec, "measure_temp"]
@@ -32,11 +34,9 @@ class Display:
         rc = p.returncode
         text = ""
         if out:
-            # text += stdout
-            print(stdout)
+            text += stdout.strip().decode('utf-8')
         if err:
-            # text += stderr
-            print(stderr)
+            text += stderr.strip().decode('utf-8')
         if verbose:
             print(text)
-        return stdout
+        return text
