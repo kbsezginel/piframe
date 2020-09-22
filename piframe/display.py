@@ -5,7 +5,7 @@ from subprocess import Popen, PIPE
 class Display:
     def __init__(self):
         self.exec = "vcgencmd"
-        self.state = None
+        self.display_power()
 
     def __repr__(self):
         return "<Display is %s>" % self.state
