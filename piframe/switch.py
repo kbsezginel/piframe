@@ -11,6 +11,7 @@ class Switch:
         self.read()
 
     def __repr__(self):
+        self.read()
         return "<Switch (pin: %i) is %s>" % (self.pin, self.state)
 
     def read(self):
