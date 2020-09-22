@@ -20,6 +20,7 @@ def parse():
     # Optional arguments
     parser.add_argument("--switch", "-s", default=26, type=int, help="Switch pin no (default: 26)")
     args = parser.parse_args()
+    return args
 
 
 def main(args):
@@ -27,9 +28,9 @@ def main(args):
     display = Display()
     while True:
         switch.read()
-        if switch.on and display.off:
+        if switch.on and display.state == "off":
             display.toggle("on")
-        elif not switch.on and display.on:
+        elif not switch.on and display.state == "on":
             display.toggle("off")
         time.sleep(0.5)
         print(display)
