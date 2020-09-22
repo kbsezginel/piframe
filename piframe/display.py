@@ -1,5 +1,5 @@
 import time
-import subprocess
+from subprocess import Popen, PIPE
 
 
 class Display:
@@ -27,8 +27,9 @@ class Display:
         return self.run(cmd)
 
     def run(self, cmd, out=True, err=False, verbose=True):
-        process = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        stdout, stderr = process.stdout.decode(), process.stderr.decode()
+        p = Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=PIPE)
+        stdout, stderr = p.communicate()
+        rc = p.returncode
         text = ""
         if out:
             text += stdout
