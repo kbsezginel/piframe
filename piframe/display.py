@@ -8,7 +8,7 @@ class Display:
         self.state = None
 
     def __repr__(self):
-        return f"<Display is {self.state}>"
+        return f"<Display is %s>" % self.state
 
     def toggle(self, state, check_state=True):
         cmd = [self.exec, "display_power", {"on": "1", "off": "0"}[state]]
