@@ -13,7 +13,7 @@ setup(
     url='https://github.com/kbsezginel/piframe',
     include_package_data=True,
     packages=find_packages(),
-    install_requires=['pygame', 'imageio'],
+    install_requires=['RPi.GPIO'],
     entry_points={
         'console_scripts': ['piframe=piframe.main']
     }
