@@ -32,9 +32,11 @@ class Display:
         rc = p.returncode
         text = ""
         if out:
-            text += stdout
+            # text += stdout
+            print(stdout)
         if err:
-            text += stderr
+            # text += stderr
+            print(stderr)
         if verbose:
             print(text)
-        return text
+        return stdout
