@@ -20,11 +20,11 @@ class Display:
 
     def display_power(self):
         cmd = [self.exec, "display_power"]
-        self.run(cmd)
+        return self.run(cmd)
 
     def measure_temp(self):
         cmd = [self.exec, "measure_temp"]
-        self.run(cmd)
+        return self.run(cmd)
 
     def run(self, cmd, out=True, err=False, verbose=True):
         process = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
