@@ -31,9 +31,9 @@ class Display:
         stdout, stderr = process.stdout.decode(), process.stderr.decode()
         text = ""
         if out:
-            text += out
+            text += stdout
         if err:
-            text += err
+            text += stderr
         if verbose:
             print(text)
         return text
